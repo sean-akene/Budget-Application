@@ -22,7 +22,7 @@ request.onsuccess = ({ target }) => {
 // ...
 //}
 request.onupgradeneeded = function (event) {
-    // create object store called "pending" and set autoIncrement to true
+    // creating an object storage called "pending" and setting the autoIncrement to true
     let db = event.target.result;
     db.createObjectStore("pending", { autoIncrement: true });
 };
@@ -33,7 +33,7 @@ request.onerror = function (event) {
 };
 
 function saveRecord(record) {
-    // create a transaction on the pending db with readwrite access
+    // creating a transaction on the pending db 
     const transaction = db.transaction(["pending"], "readwrite");
 
     const store = transaction.objectStore("pending");
