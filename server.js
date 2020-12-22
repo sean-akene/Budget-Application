@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb+srv://sean-akene:PNZDs5CGbqaqvWOU @budgetcluster.mno1p.mongodb.net/budget?retryWrites=true&w=majority',
+  process.env.MONGODB_URI || 'mongodb+srv://sean-akene:PNZDs5CGbqaqvWOU@budgetcluster.mno1p.mongodb.net/budget?retryWrites=true&w=majority',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
