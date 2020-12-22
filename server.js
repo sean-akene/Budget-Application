@@ -15,12 +15,15 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect("mongodb+srv://sean-akene:PNZDs5CGbqaqvWOU @cluster0.mno1p.mongodb.net/budget?retryWrites=true&w=majority", {
-  useNewUrlParser: true,
-  useFindAndModify: false,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-});
+mongoose.connect(
+  process.env.MONGODB_URI || 'mongodb+srv://sean-akene:PNZDs5CGbqaqvWOU @budgetcluster.mno1p.mongodb.net/budget?retryWrites=true&w=majority',
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+  }
+);
 
 // routes
 app.use(require("./routes/api.js"));
