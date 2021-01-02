@@ -7,6 +7,7 @@ const iconFiles = iconSizes.map(
 );
 
 const staticFilesToPreCache = [
+    "/",
     "/index.html",
     "/index.js",
     "/manifest.webmanifest",
