@@ -9,7 +9,7 @@ let db;
 
 const request = indexedDb.open("budget", 1);
 
-request.onsuccess = ({ target }) => {
+request.onsuccess = ({ target }) => { console.log("Online");
     db = target.result
     if (navigator.onLine) {
         checkDataBase();
@@ -69,4 +69,4 @@ function checkDataBase() {
     }
 };
 
-window.addEventListener("online", checkDataBase());
+window.addEventListener("online", checkDataBase);
