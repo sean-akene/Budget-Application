@@ -9,7 +9,8 @@ let db;
 
 const request = indexedDb.open("budget", 1);
 
-request.onsuccess = ({ target }) => { console.log("Online");
+request.onsuccess = ({ target }) => {
+    console.log("Online");
     db = target.result
     if (navigator.onLine) {
         checkDataBase();
@@ -53,18 +54,19 @@ function checkDataBase() {
                 body: JSON.stringify(getAll.result),
                 headers: {
                     Accept: "application/json, text/plain, */*",
-                    "Content - Type": "application/json"
+                    "Content-Type": "application/json"
                 }
                     .then(response => {
                         return response.JSON
                     })
-                    .then(() => {
-                        const transaction = db.transaction(["pending"], "readwrite");
-                        const store = transaction.objectStore("pending");
-
-                        store.clear();
-                    })
             })
+                .then(() => {
+                    const transaction = db.transaction(["pending"], "readwrite");
+                    const store = transaction.objectStore("pending");
+
+                    store.clear();
+                })
+
         }
     }
 };
