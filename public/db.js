@@ -56,16 +56,18 @@ function checkDataBase() {
                     Accept: "application/json, text/plain, */*",
                     "Content-Type": "application/json"
                 }
-                    .then(response => {
-                        return response.JSON
-                    })
             })
+                .then(response => {
+                    return response.JSON
+                })
+
                 .then(() => {
                     const transaction = db.transaction(["pending"], "readwrite");
                     const store = transaction.objectStore("pending");
 
                     store.clear();
                 })
+
 
         }
     }
